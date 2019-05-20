@@ -13,8 +13,8 @@ import (
 // Sends an email
 func Send(body string) {
 	from := "test@gmail.com"
-	pass := "pass"
-	to := "test2@gmail.com"
+	pass := "test"
+	to := "abc@yopmail.com"
 
 	msg := "From: " + from + "\n" +
 		"To: " + to + "\n" +
