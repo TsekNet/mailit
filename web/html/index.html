@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/web/css/reddit.css">
+        <link rel="shortcut icon" href="https://golang.org/favicon.ico">
+        <title>Get Top Reddit Posts with Golang 🔥</title>
+    </head>
+    <body>
+        <h1>Get Top Reddit Posts with Golang 🔥</h1>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Link</th>
+          </tr>
+          {{range .}}
+          <tr>
+            <td>{{.Post.Title}}</td>
+            <td><a href="{{.Post.Link}}">Click Here</a></td>
+          </tr>
+          {{end}}
+          </table>
+    </body>
+</html>
