@@ -9,15 +9,15 @@
     <body>
         <h1>Get Top Reddit Posts with Golang 🔥</h1>
         <table>
-          <tr>
-            <th>Title</th>
-            <th>Link</th>
-          </tr>
           {{range .}}
           <tr>
-            <td>{{.Post.Title}}</td>
-            <td><a href="{{.Post.Link}}">Click Here</a></td>
+            <th>
+              <a href="{{.Post.Link}}">{{.Post.Title}}</a>
+            </th>
           </tr>
+            <td>
+              <center><img src="{{.Post.Link}}" width="300" height="300"></center>
+            </td>
           {{end}}
           </table>
     </body>
