@@ -1,24 +1,23 @@
 ﻿<!DOCTYPE html>
-<html>
-
+<html style="@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600); background: rgb(246, 248, 248);">
 <head>
     <link rel="stylesheet" type="text/css" href="/web/css/reddit.css">
     <link rel="shortcut icon" href="https://golang.org/favicon.ico">
     <title>Your daily cuteness digest</title>
 </head>
 
-<body>
+<body style="padding: 40px; font-family: 'Open Sans', sans-serif; font-size: 14px; font-weight: 400; margin: 0; padding: 0;">
     <center>
         <h1>🐹 Your daily cuteness digest 🐹</h1>
     </center>
     {{range .}}
-    <div class="containers">
-        <div class="container">
-            <div class="title">
-                <span>{{.Post.Title}}</span>
-            </div>
-            <span class="image"><img src="{{.Post.Directlink}}"></span>
-            <button><a href="https://reddit.com{{.Post.Permalink}}" target="_blank">Reddit Link</a></button>
+    <div class="containers" style="width: 800px; margin: 0 auto;">
+        <div class="container" style="width: 250px; background: #111; color: #c5ddf7; float: left;">
+                <span style ="padding: 10px 4px 0 4px; display: block; text-align: center; font-size: 13px;">{{.Post.Title}}</span>
+            <img src="{{.Post.Directlink}}" style="max-height:100%; max-width:100%; display: block; width: 250px; background: #222; margin: 15px 0 10px 0;
+  text-align: center; font-size: 23px; padding: 17px 0 17px 0;">
+            <button style="border: none; border-radius: 40px; background: #292b2e; color: #773b3b; padding: 10px 37px; margin: 10px 0 20px 60px;"><a href="https://reddit.com{{.Post.Permalink}}" target="_blank" style="color:#ffffff;
+  text-decoration: none; color:#ed04f5 !important;">Reddit Link</a></button>
         </div>
     </div>
     {{end}}

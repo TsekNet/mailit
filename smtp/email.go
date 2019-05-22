@@ -14,7 +14,7 @@ func Send(body string) {
 	mime := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
 	server := "smtp.gmail.com:587"
 	auth := smtp.PlainAuth("", from, pass, "smtp.gmail.com")
-	subject := "Subject: Test email from Go!\n"
+	subject := "Subject: Your daily cuteness digest!\n"
 
 	msg := []byte(subject + mime + "<html><body><h1>" + body + "</h1></body></html>")
 

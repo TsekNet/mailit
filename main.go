@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"html/template"
 	"log"
 	"mailit/smtp"
@@ -19,14 +20,27 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	t := template.Must(template.ParseFiles("web/html/index.html"))
 	//If errors show an internal server error message
-	//I also pass the welcome struct to the welcome-template.html file.
 	if err := t.ExecuteTemplate(w, "index.html", data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
 
-func sender() {
-	email.Send("test")
+func sender() error {
+	data, err := reddit.GetTopPosts()
+	if err != nil {
+		log.Fatalf("%v", err)
+	}
+	t := template.Must(template.ParseFiles("web/html/index.html"))
+
+	var tpl bytes.Buffer
+	if err := t.Execute(&tpl, data); err != nil {
+		return err
+	}
+
+	result := tpl.String()
+	email.Send(result)
+
+	return err
 }
 
 func main() {
