@@ -29,7 +29,7 @@ type PostMetaData struct {
 
 // GetTopPosts return the 20 top posts of /r/<subreddit>
 func GetTopPosts() ([]PostMetaData, error) {
-	url := "https://www.reddit.com/r/aww/.json?"
+	url := "https://www.reddit.com/r/puppy/.json?"
 	redditClient := http.Client{
 		Timeout: time.Second * 2, // Maximum of 2 secs
 	}

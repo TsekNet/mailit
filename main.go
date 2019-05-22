@@ -3,7 +3,7 @@ package main
 import (
 	"html/template"
 	"log"
-	//"mailit/smtp"
+	"mailit/smtp"
 	"mailit/web"
 	"net/http"
 )
@@ -26,20 +26,17 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func sender() {
-	//email.Send("mint ice cream with chocolate sprinkles")
+	email.Send("test")
 }
 
 func main() {
 
-	// log.Println("Emailing..")
-	// sender()
+	log.Println("Emailing..")
+	sender()
 
-	http.Handle("/web/", //final url can be anything
+	http.Handle("/web/",
 		http.StripPrefix("/web/",
-			http.FileServer(http.Dir("web")))) //Go looks in the relative "web" directory first using http.FileServer(), then matches it to a
-	//url of our choice as shown in http.Handle("/web/"). This url is what we need when referencing our css files
-	//once the server begins. Our html code would therefore be <link rel="stylesheet"  href="/web/stylesheet/...">
-	//It is important to note the url in http.Handle can be whatever we like, so long as we are consistent.
+			http.FileServer(http.Dir("web"))))
 
 	log.Println("Starting web server...")
 	http.HandleFunc("/reddit/aww", handler)
