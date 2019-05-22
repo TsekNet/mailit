@@ -1,24 +1,27 @@
 ﻿<!DOCTYPE html>
-
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="/web/css/reddit.css">
-        <link rel="shortcut icon" href="https://golang.org/favicon.ico">
-        <title>Get Top Reddit Posts with Golang 🔥</title>
-    </head>
-    <body>
-        <h1>Get Top Reddit Posts with Golang 🔥</h1>
-        <table>
-          {{range .}}
-          <tr>
-            <th>
-              <a href="{{.Post.Link}}">{{.Post.Title}}</a>
-            </th>
-          </tr>
-            <td>
-              <center><img src="{{.Post.Link}}" width="300" height="300"></center>
-            </td>
-          {{end}}
-          </table>
-    </body>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/web/css/reddit.css">
+    <link rel="shortcut icon" href="https://golang.org/favicon.ico">
+    <title>Your daily cuteness digest</title>
+</head>
+
+<body>
+    <center>
+        <h1>🐹 Your daily cuteness digest 🐹</h1>
+    </center>
+    {{range .}}
+    <div class="containers">
+        <div class="container">
+            <div class="title">
+                <span>{{.Post.Title}}</span>
+            </div>
+            <span class="image"><img src="{{.Post.Directlink}}"></span>
+            <button><a href="https://reddit.com{{.Post.Permalink}}" target="_blank">Reddit Link</a></button>
+        </div>
+    </div>
+    {{end}}
+</body>
+
 </html>

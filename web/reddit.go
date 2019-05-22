@@ -14,16 +14,17 @@ type Listing struct {
 		Modhash string         `json:"modhash"`
 		Dist    int            `json:"dist"`
 		Posts   []PostMetaData `json:"children"`
-	} `json:"data"`
+	} `json:"data,omitempty"`
 }
 
 // PostMetaData consists of specific meta data and posts
 type PostMetaData struct {
 	Post struct {
-		Title string `json:"title"`
-		Link  string `json:"url"`
-		Hint  string `json:"post_hint"`
-	} `json:"data"`
+		Title      string `json:"title"`
+		Directlink string `json:"url"`
+		Permalink  string `json:"permalink"`
+		Hint       string `json:"post_hint"`
+	} `json:"data,omitempty"`
 }
 
 // GetTopPosts return the 20 top posts of /r/<subreddit>
@@ -58,12 +59,9 @@ func GetTopPosts() ([]PostMetaData, error) {
 
 	var post []PostMetaData
 
-	for _, e := range data.MetaData.Posts {
-		if e.Post.Hint == "image" {
-			post = append(post, e)
-		}
-		if len(post) == 3 {
-			break
+	for _, p := range data.MetaData.Posts {
+		if p.Post.Hint == "image" && len(post) < 3 {
+			post = append(post, p)
 		}
 	}
 

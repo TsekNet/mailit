@@ -1,20 +1,77 @@
-﻿body {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
+﻿@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+html {
+  background: rgb(246, 248, 248);
 }
-
-td, th {
-  border: 1px solid #ddd;
-  padding: 2px;
+body {
+  padding: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
 }
-
-tr:nth-child(even){background-color: #f2f2f2;}
-
-tr:hover {background-color: #ddd;}
-
-th {
-  padding: 5px;
+.containers {
+  width: 800px;
+  margin: 0 auto;
+}
+.container {
+  width: 250px;
+  background: #111;
+  color: #c5ddf7;
+  float: left;
+}
+.title {
+  padding: 10px 4px 0 4px;
+}
+.title span {
+  display: block;
   text-align: center;
-  background-color: #1180e2;
-  color: white;
+}
+.title span:first-of-type {
+  font-size: 23px;
+}
+.title span:last-of-type {
+  font-size: 13px;
+}
+.container .image {
+  display: block;
+  width: 250px;
+  background: #222;
+  margin: 15px 0 10px 0;
+  text-align: center;
+  font-size: 23px;
+  padding: 17px 0 17px 0;
+}
+button {
+  border: none;
+  border-radius: 40px;
+  background: #292b2e;
+  color: #773b3b;
+  padding: 10px 37px;
+  margin: 10px 0 20px 60px;
+}
+.scale {
+  transform: scale(1.2);
+  box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
+}
+.scale button {
+  background: #64AAA4;
+}
+.scale .image {
+  color: #64AAA4;
+}
+
+img {
+  max-height:100%;
+  max-width:100%
+}
+
+a:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(168, 0, 210);
+  text-decoration: none;
 }
